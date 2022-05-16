@@ -12,7 +12,7 @@ from helper_function import *
 # Tests
 #--------------------------------------------------------------------
 
-def test_basic_duckduckgo_search():
+def test_basic_duckduckgo_search(browser):
 
     # Scenario: Basic DuckDuckGo search
     # TODO
