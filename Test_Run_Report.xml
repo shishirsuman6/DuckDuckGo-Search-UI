@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="5.481" timestamp="2022-05-16T05:11:46.948963" hostname="Kaizalienware"><testcase classname="tests.test_search" name="test_basic_duckduckgo_search" time="3.478" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="5.684" timestamp="2022-05-16T05:49:38.649917" hostname="Kaizalienware"><testcase classname="tests.test_search" name="test_basic_duckduckgo_search" time="3.298"><failure message="AssertionError: assert 'orange' in ''&#10; +  where '' = &lt;bound method DuckDuckGoResultPage.title of &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;&gt;()&#10; +    where &lt;bound method DuckDuckGoResultPage.title of &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;&gt; = &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;.title">browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="22668c11f39781130aee747205f3597a")&gt;
+
+    def test_basic_duckduckgo_search(browser):
+    
+        # Scenario: Basic DuckDuckGo search
+        search_page= DuckDuckGoSearchPage(browser)
+        result_page= DuckDuckGoResultPage(browser)
+        PHRASE='orange'
+    
+        # Given the DuckDuckGo Home page is displayed
+        search_page.load()
+    
+        # When the user searches for "panda"
+        search_page.search(PHRASE)
+    
+        # Then the search result title contains "panda"
+&gt;       assert PHRASE in result_page.title()
+E       AssertionError: assert 'orange' in ''
+E        +  where '' = &lt;bound method DuckDuckGoResultPage.title of &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;&gt;()
+E        +    where &lt;bound method DuckDuckGoResultPage.title of &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;&gt; = &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;.title
+
+tests\test_search.py:31: AssertionError</failure></testcase></testsuite></testsuites>

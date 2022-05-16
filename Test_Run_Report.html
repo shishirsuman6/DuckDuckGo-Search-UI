@@ -243,7 +243,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>DuckDuckGo Search Feature - Test Results</h1>
-    <p>Report generated on 16-May-2022 at 05:11:52 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 16-May-2022 at 05:49:44 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -259,8 +259,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.9.9</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 5.48 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>1 tests ran in 5.69 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -271,12 +271,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="passed results-table-row">
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
+          <td class="col-result">Failed</td>
           <td class="col-name">tests/test_search.py::test_basic_duckduckgo_search</td>
-          <td class="col-duration">3.47</td>
+          <td class="col-duration">3.29</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe<br/>[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe<br/>[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe<br/><br/>browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;22668c11f39781130aee747205f3597a&quot;)&gt;<br/><br/>    def test_basic_duckduckgo_search(browser):<br/>    <br/>        # Scenario: Basic DuckDuckGo search<br/>        search_page= DuckDuckGoSearchPage(browser)<br/>        result_page= DuckDuckGoResultPage(browser)<br/>        PHRASE=&#x27;orange&#x27;<br/>    <br/>        # Given the DuckDuckGo Home page is displayed<br/>        search_page.load()<br/>    <br/>        # When the user searches for &quot;panda&quot;<br/>        search_page.search(PHRASE)<br/>    <br/>        # Then the search result title contains &quot;panda&quot;<br/>&gt;       assert PHRASE in result_page.title()<br/><span class="error">E       AssertionError: assert &#x27;orange&#x27; in &#x27;&#x27;</span><br/><span class="error">E        +  where &#x27;&#x27; = &lt;bound method DuckDuckGoResultPage.title of &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;&gt;()</span><br/><span class="error">E        +    where &lt;bound method DuckDuckGoResultPage.title of &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;&gt; = &lt;pages.results.DuckDuckGoResultPage object at 0x000001D84853A070&gt;.title</span><br/><br/>tests\test_search.py:31: AssertionError[gw0] win32 -- Python 3.9.9 C:\ProgramData\Anaconda3\envs\dev39\python.exe<br/></div></td></tr></tbody></table></body></html>
