@@ -39,5 +39,5 @@ def test_basic_duckduckgo_search(browser):
     assert len(matches) > 0
     
     # Remove this once the test is complete
-    raise Exception("Incomplete Test")
+    # raise Exception("Incomplete Test")
     
