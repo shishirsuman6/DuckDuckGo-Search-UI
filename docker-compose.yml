@@ -1,0 +1,46 @@
+version: "2.5"
+services:
+
+  selenium-hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+    environment:
+        GRID_MAX_SESSION: 16
+        GRID_BROWSER_TIMEOUT: 300
+        GRID_TIMEOUT: 300
+
+  chrome:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: selenium-hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 2
+      NODE_MAX_INSTANCES: 2
+    # volumes:
+    #   - /dev/shm:/dev/shm
+
+  firefox:
+    image: selenium/node-firefox
+    depends_on:
+      - selenium-hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: selenium-hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
+
+# install selenium server (Grid): https://www.selenium.dev/downloads/
+# docker pull selenium/hub 
+# docker pull selenium/node-chrome  
+# docker pull selenium/node-chrome-debug
+# docker pull selenium/node-firefox
+# docker pull selenium/node-firefox-debug
+# Create docker-compose.yml
+# docker-compose up -d
+# docker ps -a
+# http://localhost:4444/grid/console
+# docker-compose restart
+# docker-compose down

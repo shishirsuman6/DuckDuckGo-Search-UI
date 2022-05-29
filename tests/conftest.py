@@ -38,7 +38,18 @@ def browser(config):
         b = selenium.webdriver.Chrome()
     elif config['browser'] == 'Headless Chrome':
         opts = selenium.webdriver.ChromeOptions()
+        # Explicitly saying that this is a headless application
         opts.add_argument('headless')
+        # Explicitly bypassing the security level in Docker, 
+        # apparently as Docker deamon always runs as a root user, Chrome crushes.
+        opts.add_argument('no-sandbox')
+        # Explicitly disabling the usage of /dev/shm/ . 
+        # The /dev/shm partition is too small in certain VM environments, causing Chrome to fail or crash.
+        opts.add_argument('disable-dev-shm-usage')
+        #Disabling the images with chrome_prefs["profile.default_content_settings"] = {"images": 2}
+        chrome_prefs = {}
+        opts.experimental_options["prefs"] = chrome_prefs
+        chrome_prefs["profile.default_content_settings"] = {"images": 2}
         b = selenium.webdriver.Chrome(options=opts)
     else:
         raise Exception(f'Browser "{config["browser"]}" is not supported')
